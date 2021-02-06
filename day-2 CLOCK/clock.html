@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> CSS Clock</title>
+    <style>
+        .container{
+  width:400px;
+  height:400px;
+   border:30px solid gray;
+  border-radius:50%;
+   position:relative;
+}
+.hand{
+  width:190px;
+  border:1px solid;
+  position:absolute;
+   top:50%;
+   left:4px;
+  transition: all 0.5s ;
+  transform:rotate(90deg);
+  transform-origin:100%;
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+    </style>
+</head>
+<body>
+  <div class ='container'>
+    <div class='hand sec-hand'></div>
+    <div class='hand min-hand'></div>
+    <div class='hand hrs-hand'></div>
+    
+  </div>
+</body>
+ <script>
+   let secondHand= document.querySelector('.sec-hand');
+   let minuteHand= document.querySelector('.min-hand');
+   let hoursHand= document.querySelector('.hrs-hand');
+   function setCurrentTime(){
+       let now = new Date();
+    let getSec= now.getSeconds();
+    let getMin= now.getMinutes();
+    let getHour= now.getHours();
+    
+    let getSecInRadian= getSec/60*360;
+    secondHand.style.setProperty(`transform`,`rotate(${getSecInRadian}deg)`);
+  
+     let getMinInDegree = getMin/60 *360  + (getSec/60) *6 +90;
+     minuteHand.style.setProperty(`transform`,`rotate(${getMinInDegree}deg)`);
+  
+     let getHourInRadian = getHour/12 *360 + 90;
+     hoursHand.style.setProperty(`transform`,`rotate(${getHourInRadian}deg)`);
+    
+}
+ setInterval(setCurrentTime,1000);
+
+ </script>
+</html>
