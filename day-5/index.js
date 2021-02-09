@@ -1,17 +1,21 @@
-let panel = document.querySelectorAll('.panel');
+let panels = document.querySelectorAll('.panel');
 
   function toggleOpen(){
-      console.log(this);
+     console.log('hello');
      this.classList.toggle('open');
 
   }
-function toggleActive(e) {
-    console.log(e.propertyName);
-}
-
-panel.forEach(panel =>{
+  function toggleActive(e) {
+        
+    console.log('we are not getting any property',e.propertyName);
+      
+     if (e.propertyName.includes("flex")) {
+       this.classList.toggle("open-active");
+     }
+   }
+panels.forEach(panel =>{
      panel.addEventListener('click',toggleOpen)
 })
-panel.forEach(panel =>{
-     panel.addEventListener('transitionend',toggleActive)
+panels.forEach(panel =>{
+     panel.addEventListener("transitionend ",toggleActive)
 })

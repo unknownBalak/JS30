@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX request | Type ahead 👀</title>
+    <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <form class="search-form">
+    <input type="text" class="search" placeholder="City or State">
+    <ul class="suggestions">
+      <li>Filter for a city</li>
+      <li>or a state</li>
+    </ul>
+  </form>
+       
+    </body>
+<script>
+    const cities = [];
+    let endPoint = "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
+              fetch(endPoint)
+                     .then(res => res.json())
+                     .then(data =>
+                      {
+                    cities.push(...data);      
+                     } );
+
+
+   function filterData(matchedChar,cities) {
+          matchedChar = matchedChar.toLowerCase();    
+    return cities.filter(place => 
+         { 
+           let regex = new RegExp(matchedChar,'ig');
+           return place.city.match(regex) || place.state.match(regex) 
+        })
+  
+}
+ let input = document.querySelector('.search');
+ let suggestion = document.querySelector('.suggestions'); 
+ console.log(input);
+ console.log(suggestion);
+function displayMatch() {
+  let filterCities = filterData(this.value,cities);
+      
+        let html = 
+           filterCities.map(place=>{
+            let regEx = new RegExp(this.value,'ig');
+        cityName = place.city.replace(regEx,`<span class='hl'>${this.value}</span>`)
+        stateName = place.state.replace(regEx,`<span class='hl'>${this.value}</span>`);
+            return ` <li>
+        <span class="name">${cityName}, ${stateName}</span>
+        <span class="population">${(place.population)}</span>
+      </li>`
+           }).join('');
+  
+         suggestion.innerHTML = html;
+    }
+
+input.addEventListener('change',displayMatch);
+input.addEventListener('keyup',displayMatch);
+</script>
+</html>
