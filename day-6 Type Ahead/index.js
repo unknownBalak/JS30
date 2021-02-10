@@ -24,7 +24,7 @@ function displayData(e) {
         // console.log(filterItems);
 let html = filteredItems.map(place=>  
         {
-             return `<li><span> ${place.city} ${place.state} <span><span>${place.population}</span></li>`
+             return `<li><span class='name'> ${place.city} ${place.state} </span><span class='population'>${place.population}</span></li>`
         }).join('');     
         console.log(html)
         suggestion.innerHTML= html;
