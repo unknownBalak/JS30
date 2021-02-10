@@ -1,0 +1,55 @@
+html{
+    margin: 0;
+    box-sizing: border-box;
+    background-color: chartreuse;
+    font-family: 'Architects Daughter', cursive;
+    font-size: 20px;
+    font-weight: 400;
+}
+ * , *::after, *::before    {
+     box-sizing: inherit;
+ }
+ input{
+     width: 100%;
+     padding:20px;
+ }
+
+ /* Below code snippet will give center the form
+    because we first give max-size and and doing margin-auto
+ */
+ .searchForm{
+     max-width: 500px;
+     margin: 0 auto ;
+ }
+
+ input#search{
+     margin: 0;
+     text-align: center;
+     /* outline is used, when we click on 
+        input box it shows some border effect on input,
+        remove that border while focusing. 
+     */
+     outline: 0;
+     border: 10px solid #f7f7f7;
+     /* width: 120%; */
+     /* left: -10%; */
+     position: relative;
+     top: 10px;
+     z-index: 2;
+     border-radius: 5px;
+     font-size: 40px;
+     box-shadow: 0 0 5px rgba(0,0,0,0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+ }
+
+ #suggestion{
+     margin: 10px;
+     padding: 0;    
+      position: relative;
+ }
+ #suggestion li{
+      
+    background-color: white;
+    list-style-type: none;
+    border-bottom: 1px solid #d8d8d8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, alpha);
+ }
