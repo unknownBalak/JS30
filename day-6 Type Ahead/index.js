@@ -21,12 +21,14 @@ function filterCities(enteredChar) {
     }
 function displayData(e) {
         let filteredItems =filterCities(this.value);
-        // console.log(filterItems);
+        
 let html = filteredItems.map(place=>  
         {
-             return `<li><span class='name'> ${place.city} ${place.state} </span><span class='population'>${place.population}</span></li>`
+                let regex = new RegExp(this.value,'gi');
+                let cityName= place.city.replace(regex,`<span class='hl'>${this.value}</span>`)
+                let stateName= place.state.replace(regex,`<span class='hl'>${this.value}</span>`)
+                return `<li><span class='name'> ${cityName} ${stateName} </span><span class='population'>${place.population}</span></li>`
         }).join('');     
-        console.log(html)
         suggestion.innerHTML= html;
 }
 search.addEventListener('change',displayData);

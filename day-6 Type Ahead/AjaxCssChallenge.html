@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Ahead | CSS challenge</title>
+   <style>
+       html{
+           box-sizing: border-box;
+           background-color: rgb(252, 169, 16);
+           margin: 0;
+           padding:0;
+           font-family: monospace;
+        }
+    *, *::after,*::before{
+        box-sizing: border-box;
+    }
+    .formSearch{
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    input#search{
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+        font-size: 40px;
+        outline: 0;
+        border: 10px solid rgb(255, 242, 242);
+        border-radius: 5px;
+        box-shadow: inset 1px -1px 0 #dadada;
+        z-index:    2;
+        width: 120%;
+         left: -10%;
+        position: relative;
+        top: 10%;    
+}
+    #suggestion{
+        margin: -4px;
+        padding: 0;
+        position: relative;
+       z-index: 1;
+    }
+
+     #suggestion li{
+      list-style-type: none;
+      font-size: 20px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+     background-color: ivory;
+     border-bottom: 1px solid rgb(231, 219, 219);
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+     padding: 20px;
+     margin: 0;
+     text-transform:uppercase;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     transition: background 0.2s;
+  }
+    #suggestion li:nth-child(even){
+        background: linear-gradient(to top,#ffffff 0%, #efefef 100%);
+        transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
+    }
+    #suggestion li:nth-child(odd){
+        background: linear-gradient(to top,#ffffff 0%, #efefef 100%);
+        transform:perspective(100px) rotateX(-3deg) translateY(3px);
+    }
+  
+
+
+
+   </style>
+
+
+</head>
+<body>
+    <form class="formSearch">
+        <input placeholder="City or State" id='search' />
+        <ul id="suggestion">
+                <li><span class="cityState" >Fiter For A City</span><span class="population"> population</span> </li>
+                <li> <span class="cityState">Or a State</span><span class="population"> population</span></li>
+                <li><span class="cityState" >Fiter For A City</span><span class="population"> population</span> </li>
+                <li> <span class="cityState">Or a State</span><span class="population"> population</span></li>
+                <li><span class="cityState" >Fiter For A City</span><span class="population"> population</span> </li>
+                <li> <span class="cityState">Or a State</span><span class="population"> population</span></li>
+                <li><span class="cityState" >Fiter For A City</span><span class="population"> population</span> </li>
+                <li><span class="cityState" >Fiter For A City</span><span class="population"> population</span> </li>
+                <li><span class="cityState" >Fiter For A City</span><span class="population"> population</span> </li>
+                <li><span class="cityState" >Fiter For A City</span><span class="population"> population</span> </li>
+                <li><span class="cityState" >Fiter For A City</span><span class="population"> population</span> </li>
+                <li><span class="cityState" >Fiter For A City</span><span class="population"> population</span> </li>
+                <li><span class="cityState" >Fiter For A City</span><span class="population"> population</span> </li>
+                <li><span class="cityState" >Fiter For A City</span><span class="population"> population</span> </li>
+                <li><span class="cityState" >Fiter For A City</span><span class="population"> population</span> </li>
+                <li> <span class="cityState">Or a State</span><span class="population"> population</span></li>
+        </ul>
+    </form>
+</body>
+</html>

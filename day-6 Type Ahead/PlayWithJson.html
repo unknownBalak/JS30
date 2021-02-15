@@ -47,7 +47,10 @@ function displayMatch() {
         let html = 
            filterCities.map(place=>{
             let regEx = new RegExp(this.value,'ig');
-        cityName = place.city.replace(regEx,`<span class='hl'>${this.value}</span>`)
+            console.log(regEx);
+            cityName = place.city.replace(regEx,`<span class='hl'>${this.value}</span>`)
+            console.log(cityName);
+         
         stateName = place.state.replace(regEx,`<span class='hl'>${this.value}</span>`);
             return ` <li>
         <span class="name">${cityName}, ${stateName}</span>
